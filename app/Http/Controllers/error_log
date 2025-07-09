@@ -1,0 +1,4 @@
+[13-Mar-2025 17:14:51 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Routing\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Controller.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Controller.php on line 9

@@ -1,7 +1,50 @@
 @extends('admin.layouts.admin_master')
 
 @section('title', 'Default Setting')
+<style>
+    .toggle-container {
+    position: relative;
+}
 
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    display: inline-block;
+    width: 38px;
+    height: 18px;
+    background-color: #ccc;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.ak-upload {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.toggle-label::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s ease;
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background-color: #4caf50;
+}
+
+.toggle-checkbox:checked + .toggle-label::after {
+    left: 21px;
+}
+</style>
 @section('content')
 <div class="row">
     <div class="col-lg-12">
@@ -113,7 +156,16 @@
                             <label>Youtube Link</label>
                             <input type="text" class="form-control" name="youtube_link" value="{{$default_setting->youtube_link}}" placeholder="Youtube Link">
                         </div>
-                    </div>
+                        <div class="col-lg-12 mb-3 ak-upload">
+            <label>Building Auto Approve</label>
+            <!-- Toggle Checkbox -->
+            <input type="checkbox" name="building_approval" id="building_approval" 
+                   class="toggle-checkbox" @checked($default_setting->building_approval == 1)>
+            <label for="building_approval" class="toggle-label"></label>
+            @error('building_approval')
+            <span class="text-danger">{{$message}}</span>
+            @enderror
+        </div>
                     <div class="m-3">
                         <button class="btn btn-info" type="submit">Update Default Setting</button>
                     </div>
@@ -145,4 +197,28 @@
         });
     })
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggle = document.getElementById("building_approval");
+
+        // Initial log based on the toggle state
+        if (toggle.checked) {
+            console.log("Slider is ON");
+        } else {
+            console.log("Slider is OFF");
+        }
+
+        // When the user changes the toggle state
+        toggle.addEventListener("change", function() {
+            if (this.checked) {
+                // If checked, the value will be 1
+                console.log("Slider is ON");
+            } else {
+                // If unchecked, the value will be 0
+                console.log("Slider is OFF");
+            }
+        });
+    });
+</script>
+
 @endsection

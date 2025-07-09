@@ -15,10 +15,14 @@ class Role
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
+        \Log::info('User Role:', [$request->user()->role]);
+        \Log::info('Roles Passed:', $roles);
+    
         if (in_array($request->user()->role, $roles)) {
             return $next($request);
         }
-
+    
         return redirect('admin/dashboard')->with('info', 'You are not authorised person this url.');
     }
+    
 }

@@ -1,0 +1,48 @@
+[13-Mar-2025 15:34:40 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php on line 8
+[13-Mar-2025 15:35:44 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php on line 8
+[14-Mar-2025 05:06:48 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php on line 8
+[14-Mar-2025 05:06:48 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php on line 8
+[14-Mar-2025 05:06:57 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php on line 8
+[14-Mar-2025 05:06:57 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php on line 8
+[14-Mar-2025 05:07:06 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php on line 8
+[14-Mar-2025 05:07:06 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php on line 8
+[14-Mar-2025 05:07:17 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php on line 8
+[14-Mar-2025 05:07:18 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php on line 8
+[14-Mar-2025 05:07:30 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/IncomeSummaryExport.php on line 8
+[14-Mar-2025 05:07:32 UTC] PHP Fatal error:  Uncaught Error: Interface "Maatwebsite\Excel\Concerns\FromView" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exports/CourierSummaryExport.php on line 8

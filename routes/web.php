@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +13,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
+    return 'Cache cleared!';
+});
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('all-branch', [FrontendController::class, 'allBranch'])->name('all.branch');
 Route::get('all-service', [FrontendController::class, 'allService'])->name('all.service');

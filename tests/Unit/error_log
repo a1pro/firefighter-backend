@@ -1,0 +1,40 @@
+[14-Mar-2025 05:06:31 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:06:40 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:06:49 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:06:53 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:06:59 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:07:02 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:07:11 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:07:12 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:07:23 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7
+[14-Mar-2025 05:07:36 UTC] PHP Fatal error:  Uncaught Error: Class "PHPUnit\Framework\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Unit/ExampleTest.php on line 7

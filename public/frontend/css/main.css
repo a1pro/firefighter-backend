@@ -10,7 +10,7 @@ body {
   font-family: "Heebo", sans-serif;
   font-weight: normal;
   font-style: normal;
-  color: #676F73;
+  color: #fff;
   overflow-x: hidden;
 }
 
@@ -32,7 +32,10 @@ button:focus,
   outline: none;
   box-shadow: none;
 }
-
+section#about h1, section#about p
+{
+  color:#000;
+}
 a:hover {
   color: #E8505B;
 }
@@ -71,7 +74,7 @@ h6 {
   font-family: "Fira Sans", sans-serif;
   font-weight: 700;
   margin: 0px;
-  color: #263238;
+  color: #fff;
 }
 
 h1 a,
@@ -98,7 +101,17 @@ h1 {
     font-size: 40px;
   }
 }
-
+span.wow.fadeInUp {
+    font-size: 25px;
+    font-weight: 600;
+    color: #E8505B;
+        margin-bottom: 10px;
+    }
+    section#partner p {
+    color: #000;
+    padding-bottom: 30px;
+    text-align: center;
+}
 .section-title span {
   font-size: 25px;
   font-weight: 600;
@@ -140,6 +153,384 @@ p {
   margin: 0px;
 }
 
+/* Footer Styling */
+.footer {
+    background-color: #222;
+    color: #fff;
+}
+
+.footer .footer-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.footer .footer-widget {
+    margin-bottom: 30px;
+}
+
+.footer .footer-widget h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.footer .footer-widget .footer-para {
+    font-size: 14px;
+    margin:10px 0px;
+}
+
+.footer .social-link {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .social-link li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.footer .social-link a {
+    color: #fff;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.footer .social-link a:hover {
+    color: #f39c12;
+}
+
+.footer .links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer .links li {
+    margin-bottom: 10px;
+}
+
+.footer .links a {
+    color: #bbb;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.footer .links a:hover {
+    color: #f39c12;
+}
+
+.footer .newsletter-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.footer .newsletter-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e34e59;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer .newsletter-form button:hover {
+    background-color: #e67e22;
+}
+
+.footer .footer-bottom {
+    background-color: #111;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #bbb;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .footer .footer-widget {
+        text-align: center;
+    }
+}
+
+.single-partner.wow.fadeInUp img {
+    width: 100%;
+}
+/*------------service css -------------*/
+
+section#services {
+    background-position: top;
+    background-image: url(https://firefighter.a1professionals.net/frontend/img/service/service-bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h1 {
+  color:#000;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.section-header p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+h1.team-head {
+    text-align: center;
+    color: #000;
+    padding-bottom: 10px;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-item {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-item.large {
+  grid-column: span 2;
+}
+
+.service-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+
+
+.service-content h3 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-content p {
+  font-size: 1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.read-more {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: #0056b3;
+}
+.service1
+{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://firefighter.a1professionals.net/frontend/img/service/service1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        padding: 90px 30px;
+}
+.service2
+{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://firefighter.a1professionals.net/frontend/img/service/service2.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        padding: 90px 30px;
+}
+.service3
+{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://firefighter.a1professionals.net/frontend/img/service/service3.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        padding: 90px 30px;
+}
+.service4
+{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://firefighter.a1professionals.net/frontend/img/service/service4.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        padding: 90px 30px;
+}
+.service5
+{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://firefighter.a1professionals.net/frontend/img/service/service5.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        padding: 90px 30px;
+}
+.service6
+{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://firefighter.a1professionals.net/frontend/img/service/service6.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+        padding: 90px 30px;
+}
+/*------------service css -------------*/
+
+
+
+
+
+
+/*------------Testimonial css -------------*/
+
+.testimonial {
+    padding: 18px 11px;
+    color: white;
+    background: #E8505B;
+    border-radius: 8px;
+}
+#content {
+  max-width: 80%;
+  margin: 5vh auto;
+}
+
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial {
+  display: none;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.testimonial blockquote {
+  margin: 10px 10px 0;
+  background: #E8505B;
+  padding: 20px 60px;
+  position: relative;
+  border: none;
+  border-radius: 8px;
+  font-style: italic;
+}
+section#testimonial h1
+{
+  color:white;
+}
+section#received h1, section#received p {
+    color: black;
+}
+.testimonial blockquote:before,
+.testimonial blockquote:after {
+  content: "\201C";
+  position: absolute;
+  font-size: 80px;
+  line-height: 1;
+  color: #fff;
+  font-style: normal;
+}
+
+.testimonial blockquote:before {
+  top: 0;
+  left: 10px;
+}
+
+.testimonial blockquote:after {
+  content: "\201D";
+  right: 10px;
+  bottom: -0.5em;
+}
+
+.testimonial div {
+  width: 0;
+  height: 0;
+  border-left: 0 solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #efefef;
+  margin: 0 0 0 60px;
+}
+
+.testimonial p {
+  margin: 8px 0 0 20px;
+  text-align: left;
+  color: #00;
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+button {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+section#testimonial
+{
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://firefighter.a1professionals.net/frontend/img/about/testimonial.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+section#home {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url(https://firefighter.a1professionals.net/frontend/img/hero/hero-banner.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+section#how {
+  background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://firefighter.a1professionals.net/frontend/img/about/who-we-like.jpg);
+}
+section#how {
+    text-align: center;
+    margin: 20px 0px;
+    padding: 100px 200px;
+}
 .img-bg {
   background-position: center center;
   background-size: cover;
@@ -164,7 +555,7 @@ p {
   white-space: nowrap;
   vertical-align: middle;
   user-select: none;
-  padding: 17px 37px;
+  padding: 8px 30px;
   font-size: 18px;
   border-radius: 5px;
   color: #fff;
@@ -1150,7 +1541,7 @@ p {
 }
 
 .sticky .navbar .navbar-nav .nav-item a {
-  color: #222;
+  color: #000;
 }
 
 .sticky .navbar .navbar-nav .nav-item a::before {
@@ -1186,9 +1577,11 @@ p {
 }
 
 .navbar-brand img {
-  max-width: 180px;
+  max-width: 120px;
 }
-
+.logo img {
+    max-width: 120px;
+}
 .navbar-toggler {
   padding: 0;
 }
@@ -1256,7 +1649,7 @@ p {
 .navbar-nav .nav-item a {
   font-size: 18px;
   font-weight: 400;
-  color: #676F73;
+  color: #fff;
   transition: all 0.3s ease-out 0s;
   padding: 10px 0;
   position: relative;
@@ -1465,9 +1858,26 @@ p {
   display: none;
 }
 
+@media only screen and (min-width: 1400px) and (max-width: 3099px) {
+.hero-section {
+    position: relative;
+    padding-top: 200px;
+    padding-bottom: 60px;
+    z-index: 1;
+}
+.services-grid {
+    display: grid
+;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 1.5rem;
+}
+}
+
+
 @media only screen and (min-width: 1200px) and (max-width: 1399px) {
   .hero-section {
-    padding-top: 150px;
+    padding-bottom:50px;
+    padding-top: 180px;
   }
 }
 
@@ -1654,7 +2064,7 @@ p {
 }
 
 .about-section .about-content .counter-up {
-  background: #E8505B;
+ 
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -1663,11 +2073,12 @@ p {
 }
 
 .about-section .about-content .counter-up .single-counter {
-  padding: 20px 0;
-  margin: 0 15px;
+  background: #E8505B;
+    padding: 20px 19px;
+    margin: 0 1px;
 }
 
-.about-section .about-content .counter-up .single-counter::before, .about-section .about-content .counter-up .single-counter::after {
+/*.about-section .about-content .counter-up .single-counter::before, .about-section .about-content .counter-up .single-counter::after {
   content: '';
   position: absolute;
   width: 2px;
@@ -1675,7 +2086,7 @@ p {
   background: #fff;
   top: 20px;
   border-radius: 5px;
-}
+}*/
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .about-section .about-content .counter-up .single-counter::before, .about-section .about-content .counter-up .single-counter::after {
@@ -1687,6 +2098,22 @@ p {
   .about-section .about-content .counter-up .single-counter::before, .about-section .about-content .counter-up .single-counter::after {
     opacity: 0;
   }
+  .about-section .about-content .counter-up .single-counter {
+    padding: 20px 7px;
+    margin: 0 0px;
+}
+section#how {
+    padding: 79px 0px;
+}
+.testimonial blockquote {
+    padding: 34px 10px;
+}
+.services-grid {
+    display: block;
+}
+.service-item {
+    margin: 10px 0;
+}
 }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
@@ -1867,7 +2294,7 @@ p {
 
 .footer .footer-widget .logo a {
   display: inline-block;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
 }
 
 .footer .footer-widget .download-btns a {

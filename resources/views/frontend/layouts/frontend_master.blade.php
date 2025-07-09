@@ -9,6 +9,7 @@
         <title>{{ $default_setting->app_name }} - @yield('title')</title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('uploads/default_photo') }}/{{ $default_setting->favicon }}"/>
         <!-- Place favicon.ico in the root directory -->
@@ -63,12 +64,13 @@
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#home">Home</a>
                                     </li>
+                                     <li class="nav-item">
+                                        <a class="page-scroll" href="#about">About</a>
+                                    </li>
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#services">Services</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="page-scroll" href="#about">About</a>
-                                    </li>
+                                   
                                     <li class="nav-item">
                                         <a class="page-scroll" href="#how">How It Works</a>
                                     </li>
@@ -114,93 +116,107 @@
     <!-- ========================= partners-section start ========================= -->
     <section id="partner" class="partner-section pt-60 pb-60">
         <div class="container">
+              <div class="section-title">
+                 <span class="wow fadeInUp text-center d-block" data-wow-delay=".2s">Team Member</span>
+                        <h1 class="team-head ow fadeInUp" data-wow-delay=".4s">
+                           The Team That Makes It Happen
+                        </h1>
+                        <p class="wow fadeInUp" data-wow-delay=".6s">Behind every successful project, there is a dedicated team that works relentlessly to make it a reality. At the heart of this team is collaboration—each member brings their unique skills, insights, and experiences to contribute to a collective goal.</p>
+                    </div>
             <div class="row">
-                @php
-                    $time = .2;
-                @endphp
-                @forelse (App\Models\Company::where('status', 'Active')->get() as $company)
-                @php
-                    $time += .2;
-                @endphp
+                
                 <div class="col-lg-3 col-sm-6">
-                    <div class="single-partner wow fadeInUp" data-wow-delay="{{ $time }}s">
-                        <img src="{{ asset('uploads/company_photo') }}/{{ $company->company_photo }}" alt="{{ $company->company_name }}">
+                    <div class="single-partner wow fadeInUp" data-wow-delay="">
+                        <img src="{{ asset('frontend') }}/img/partners/Team-2.jpg" alt="">
                     </div>
                 </div>
-                @empty
-                <div class="alert alert-warning" role="alert">
-                    <strong>Data Not Found!</strong>
+                  <div class="col-lg-3 col-sm-6">
+                    <div class="single-partner wow fadeInUp" data-wow-delay="">
+                        <img src="{{ asset('frontend') }}/img/partners/Team-4.jpg" alt="">
+                    </div>
                 </div>
-                @endforelse
+                  <div class="col-lg-3 col-sm-6">
+                    <div class="single-partner wow fadeInUp" data-wow-delay="">
+                        <img src="{{ asset('frontend') }}/img/partners/Team-5.jpg" alt="">
+                    </div>
+                </div>
+                 <div class="col-lg-3 col-sm-6">
+                    <div class="single-partner wow fadeInUp" data-wow-delay="">
+                        <img src="{{ asset('frontend') }}/img/partners/Team-6.jpg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 	<!-- ========================= partners-section end ========================= -->
 
     <!-- ========================= footer start ========================= -->
-    <footer id="footer" class="footer pt-100 pb-70">
-        <div class="footer-shape">
-            <img src="{{ asset('frontend') }}/img/footer/footer-left.svg" alt="" class="shape shape-1">
-            <img src="{{ asset('frontend') }}/img/footer/footer-right.svg" alt="" class="shape shape-2">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget wow fadeInUp" data-wow-delay=".2s">
-                        <div class="logo">
-                            <a href="{{ route('index') }}"><img src="{{ asset('uploads/default_photo') }}/{{ $default_setting->logo_photo }}" alt="logo"></a>
-                        </div>
-                        <ul class="links text-white">
-                            <li>
-                                Phone: <a href="javascript:void(0)">{{ $default_setting->support_phone }}</a>
-                            </li>
-                            <li>
-                                Email: <a href="javascript:void(0)">{{ $default_setting->support_email }}</a>
-                            </li>
-                            <li>
-                                Address: {{ $default_setting->address }}
-                            </li>
-                        </ul>
+   <footer id="footer" class="footer pt-70 pb-20">
+    <div class="footer-shape">
+        <img src="path_to_your_images/footer-left.svg" alt="" class="shape shape-1">
+        <img src="path_to_your_images/footer-right.svg" alt="" class="shape shape-2">
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- First Column: Logo, Description, Social Links -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <div class="logo">
+                        <a href="#"><img src="{{ asset('uploads/default_photo') }}/{{ $default_setting->logo_photo }}" alt="logo"></a>
                     </div>
+                    <p class="footer-para">
+                        Facing the flames with determination & dedication
+                    </p>
+                    <ul class="social-link">
+                        <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" class="instagram"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget wow fadeInUp" data-wow-delay=".4s">
-                        <h3>Importent Link</h3>
-                        <ul class="links">
-                            <li>
-                                <a href="{{ route('all.branch') }}">All Branch</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('all.service') }}">All Service</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('about.us') }}">About Us</a>
-                            </li>
-                        </ul>
-                    </div>
+            </div>
+
+            <!-- Second Column: Menu -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3>Quick Links</h3>
+                    <ul class="links text-white">
+                        <li><a class="page-scroll" href="#how">How it Works</a></li>
+                        <li><a class="page-scroll" href="#services">All Service</a></li>
+                        <li><a class="page-scroll" href="#about">About Us</a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget wow fadeInUp" data-wow-delay=".6s">
-                        <h3>Support</h3>
-                        <ul class="links">
-                            <li>
-                                <a href="{{ route('contact.us') }}">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('privacy.policy') }}">Privacy Policy</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('terms.of.service') }}">Terms of Service</a>
-                            </li>
-                        </ul>
-                    </div>
+            </div>
+
+            <!-- Third Column: Name, Email, Address -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3>Contact Information</h3>
+                    <ul class="links">
+                        <li><strong>Phone:</strong> <a href="tel:+1234567890">+123 456 7890</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:example@example.com">example@example.com</a></li>
+                        <li><strong>Address:</strong> 123, Main Street, City, Country</li>
+                    </ul>
                 </div>
-                <p class="text-center">Designed and Developed by <a href="{{ $default_setting->app_url }}" style="color: #fff;" rel="nofollow">{{ $default_setting->app_name }}</a></p>
+            </div>
+
+            <!-- Fourth Column: Newsletter -->
+            <div class="col-lg-3 col-md-6">
+                <div class="footer-widget">
+                    <h3>Newsletter</h3>
+                    <p>Stay updated with our latest news</p>
+                    <form action="#" method="post" class="newsletter-form">
+                        <input type="email" name="email" placeholder="Your email address" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </footer>
+
+        <!-- Footer Bottom Section -->
+        <p class="text-center pt-40">Copyright © 2025 | Firefighter</p>
+    </div>
+</footer>
+
     <!-- ========================= footer end ========================= -->
 
     <!-- ========================= scroll-top ========================= -->

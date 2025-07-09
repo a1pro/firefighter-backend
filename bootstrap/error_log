@@ -1,0 +1,40 @@
+[14-Mar-2025 04:04:34 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 04:04:42 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 04:04:52 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 04:05:03 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 04:05:16 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 05:06:55 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 05:07:03 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 05:07:13 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 05:07:22 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14
+[14-Mar-2025 05:07:34 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/bootstrap/app.php on line 14

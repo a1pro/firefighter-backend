@@ -41,4 +41,10 @@ class User extends Authenticatable
     function relationtobranch(){
         return $this->hasOne(Branch::class, 'id', 'branch_id');
     }
+
+
+    public function areaAlloted()
+    {
+        return $this->hasOne(AreaAlloted::class, 'user_id');  // 'user_id' is the foreign key
+    }
 }

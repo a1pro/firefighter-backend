@@ -1,0 +1,32 @@
+[13-Mar-2025 17:22:37 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/SearchBuildingController.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/SearchBuildingController.php on line 17
+[13-Mar-2025 17:23:43 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/ForgotPasswordController.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/ForgotPasswordController.php on line 13
+[13-Mar-2025 17:24:48 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/NotificationController.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/NotificationController.php on line 7
+[13-Mar-2025 17:26:50 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/FaqController.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/FaqController.php on line 14
+[13-Mar-2025 17:27:47 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/AuthController.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/AuthController.php on line 10
+[13-Mar-2025 17:46:42 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/BuildingController.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/BuildingController.php on line 17
+[13-Mar-2025 17:58:11 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/RegisterController.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/RegisterController.php on line 15
+[13-Mar-2025 18:17:26 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/UserControllerApi.php:12
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Api/UserControllerApi.php on line 12

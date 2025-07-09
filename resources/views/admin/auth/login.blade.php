@@ -51,10 +51,10 @@
                 </div>
             </div>
         </form>
-        <div class="demo mt-2">
+        <!-- <div class="demo mt-2">
             <h5 class="text-center">Demo User Details</h5>
-            <div class="table-responsive">
-                <table class="table table-primary">
+            <div class="table-responsive"> -->
+                <!-- <table class="table table-primary">
                     <thead>
                         <tr>
                             <th>Email</th>
@@ -113,10 +113,10 @@
                             </td>
                         </tr>
                     </tbody>
-                </table>
-            </div>
+                </table> -->
+            <!-- </div>
         </div>
-    </div>
+    </div> -->
 </div>
 @endsection
 

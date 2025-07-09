@@ -1,0 +1,68 @@
+[13-Mar-2025 15:47:52 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php on line 9
+[13-Mar-2025 15:48:19 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:06:36 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:06:45 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:06:46 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:06:46 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php on line 9
+[14-Mar-2025 05:06:54 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:06:54 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:06:54 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php on line 9
+[14-Mar-2025 05:07:03 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:07:04 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php on line 9
+[14-Mar-2025 05:07:04 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:07:14 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:07:14 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php on line 9
+[14-Mar-2025 05:07:16 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:07:25 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ExampleTest.php on line 8
+[14-Mar-2025 05:07:27 UTC] PHP Fatal error:  Uncaught Error: Class "Tests\TestCase" not found in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/tests/Feature/ProfileTest.php on line 9

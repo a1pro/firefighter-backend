@@ -1,0 +1,44 @@
+[13-Mar-2025 16:13:16 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:06:27 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:06:34 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:06:36 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:06:45 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:06:46 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:06:55 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:06:56 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:07:07 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:07:08 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8
+[14-Mar-2025 05:07:20 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Exceptions\Handler" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Exceptions/Handler.php on line 8

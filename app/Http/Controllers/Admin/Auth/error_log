@@ -1,0 +1,12 @@
+[13-Mar-2025 17:56:09 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Admin/Auth/NewPasswordController.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Admin/Auth/NewPasswordController.php on line 15
+[13-Mar-2025 17:57:09 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Admin/Auth/AuthenticatedSessionController.php:13
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Admin/Auth/AuthenticatedSessionController.php on line 13
+[13-Mar-2025 18:04:52 UTC] PHP Fatal error:  Uncaught Error: Class "App\Http\Controllers\Controller" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Admin/Auth/PasswordResetLinkController.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Controllers/Admin/Auth/PasswordResetLinkController.php on line 11

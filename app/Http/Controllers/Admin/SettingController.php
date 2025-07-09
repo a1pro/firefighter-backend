@@ -37,7 +37,9 @@ class SettingController extends Controller
         return view('admin.setting.default', compact('default_setting'));
     }
 
-    public function defaultSettingUpdate(Request $request, $id){
+    public function defaultSettingUpdate(Request $request, $id)
+    {
+    
         $request->validate([
             'logo_photo' => 'nullable|image|mimes:png,jpg,jpeg',
             'favicon' => 'nullable|image|mimes:png,jpg,jpeg',
@@ -49,9 +51,24 @@ class SettingController extends Controller
             'main_email' => 'nullable|email|max:255',
             'support_email' => 'nullable|email|max:255',
         ]);
+    
+        $togglevalue=$request->building_approval;
+        if($togglevalue=='on')
+        {
+            $building_approval = '1';
+        }
+        else{
+            $building_approval = '0';
+        }
+      
+        // Check if Building Auto Upload checkbox is checked or not
+       
+    
+        // Change .env values
         $this->changeEnv("APP_NAME", "'$request->app_name'");
         $this->changeEnv("APP_URL", "'$request->app_url'");
         $this->changeEnv("TIME_ZONE", "'$request->time_zone'");
+    
         $default_setting = DefaultSetting::where('id', $id)->first();
         DefaultSetting::where('id', $id)->update([
             'app_name' => $request->app_name,
@@ -68,44 +85,45 @@ class SettingController extends Controller
             'instagram_link' => $request->instagram_link,
             'linkedin_link' => $request->linkedin_link,
             'youtube_link' => $request->youtube_link,
+            'building_approval' => $building_approval,  // Update building_approval status
             'updated_by' => Auth::user()->id,
             'updated_at' => Carbon::now(),
         ]);
-
+    
         // Logo Photo Upload
-        if($request->hasFile('logo_photo')){
-            if($default_setting->logo_photo != 'default_logo_photo.png'){
-                unlink(base_path("public/uploads/default_photo/").$default_setting->logo_photo);
+        if ($request->hasFile('logo_photo')) {
+            if ($default_setting->logo_photo != 'default_logo_photo.png') {
+                unlink(base_path("public/uploads/default_photo/") . $default_setting->logo_photo);
             }
-            $logo_photo_name = "Logo-Photo".".". $request->file('logo_photo')->getClientOriginalExtension();
-            $upload_link = base_path("public/uploads/default_photo/").$logo_photo_name;
+            $logo_photo_name = "Logo-Photo" . "." . $request->file('logo_photo')->getClientOriginalExtension();
+            $upload_link = base_path("public/uploads/default_photo/") . $logo_photo_name;
             Image::make($request->file('logo_photo'))->resize(192, 40)->save($upload_link);
             DefaultSetting::where('id', $id)->update([
                 'logo_photo' => $logo_photo_name
             ]);
         }
-
+    
         // Favicon Upload
-        if($request->hasFile('favicon')){
-            if($default_setting->favicon != 'default_favicon.png'){
-                unlink(base_path("public/uploads/default_photo/").$default_setting->favicon);
+        if ($request->hasFile('favicon')) {
+            if ($default_setting->favicon != 'default_favicon.png') {
+                unlink(base_path("public/uploads/default_photo/") . $default_setting->favicon);
             }
-            $favicon_name = "Favicon".".". $request->file('favicon')->getClientOriginalExtension();
-            $upload_link = base_path("public/uploads/default_photo/").$favicon_name;
+            $favicon_name = "Favicon" . "." . $request->file('favicon')->getClientOriginalExtension();
+            $upload_link = base_path("public/uploads/default_photo/") . $favicon_name;
             Image::make($request->file('favicon'))->resize(70, 70)->save($upload_link);
             DefaultSetting::where('id', $id)->update([
                 'favicon' => $favicon_name
             ]);
         }
-
+    
         $notification = array(
             'message' => 'Default setting updated successfully.',
             'alert-type' => 'success'
         );
-
+    
         return back()->with($notification);
-
     }
+    
 
     public function mailSetting(){
         $mail_setting = MailSetting::first();

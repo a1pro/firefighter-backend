@@ -1,0 +1,4 @@
+[13-Mar-2025 18:24:16 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Http\Kernel" not found in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Kernel.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/a201010a/public_html/firefighter.a1professionals.com/app/Http/Kernel.php on line 7

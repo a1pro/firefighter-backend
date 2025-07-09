@@ -15,20 +15,23 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie'], // Define paths that are allowed
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', '*'], // Allow all HTTP methods
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [
+        'http://localhost:3000',  // Local dev environment (React)
+        'https://firefighterweb.a1professionals.com',  // Front-end domain
+        'https://firefighterweb.a1professionals.net',  // Another front-end domain
+        // You can add additional domains here if necessary
+    ],
 
-    'allowed_origins_patterns' => [],
+    'allowed_headers' => ['*'],  // Allow all headers for the preflight request
 
-    'allowed_headers' => ['*'],
+    'exposed_headers' => [],  // Any headers you want to expose to the client
 
-    'exposed_headers' => [],
+    'max_age' => 0,  // Cache duration for CORS preflight request
 
-    'max_age' => 0,
-
-    'supports_credentials' => false,
-
+    'supports_credentials' => true, 
+    
 ];

