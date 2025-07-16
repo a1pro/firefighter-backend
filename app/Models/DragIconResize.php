@@ -17,7 +17,7 @@ protected $fillable = [
 
      public function icon()
     {
-        return $this->belongsTo(Icon::class, 'icon_id');
+        return $this->belongsTo(StandardIcon::class, 'icon_id');
     }
 
     public function building()

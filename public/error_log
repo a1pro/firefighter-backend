@@ -918,3 +918,4 @@ Stack trace:
 #2 /home/firefighter/firefighter.a1professionals.net_public_html/public/index.php(34): require('...')
 #3 {main}
   thrown in /home/firefighter/firefighter.a1professionals.net_public_html/vendor/composer/autoload_real.php on line 41
+[14-Jul-2025 05:16:19 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 132124672 bytes) in /home/firefighter/firefighter.a1professionals.net_public_html/app/Http/Controllers/Api/DragIconController.php on line 583

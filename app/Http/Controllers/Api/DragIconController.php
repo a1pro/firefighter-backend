@@ -556,7 +556,9 @@ public function dragIconResize(Request $request)
 
 // ======================Get Resize DragIcon========================
 public function getResizeIcons(Request $request)
-{
+{  
+
+
     $userId = Auth::id();
     $user = Auth::user();
 
@@ -660,5 +662,53 @@ public function getResizeIcons(Request $request)
 }
 
 
+public function deleteDragIconResize(Request $request)
+{
+    $iconId = $request->input('icon_id');
+    $floorId = $request->input('floor_id');
+    $basementId = $request->input('basement_id');
+
+    if (!$iconId) {
+        return response()->json([
+            'success' => false,
+            'message' => 'icon_id is required.'
+        ], 400);
+    }
+
+    if (is_null($floorId) && is_null($basementId)) {
+        return response()->json([
+            'success' => false,
+            'message' => 'Either floor_id or basement_id must be provided.'
+        ], 400);
+    }
+
+    DB::beginTransaction();
+    try {
+        $query = DragIconResize::where('icon_id', $iconId);
+
+        if (!is_null($floorId)) {
+            $query->where('floor_id', $floorId)->whereNull('basement_id');
+        } elseif (!is_null($basementId)) {
+            $query->where('basement_id', $basementId)->whereNull('floor_id');
+        }
+
+        $deletedCount = $query->delete();
+
+        DB::commit();
+
+        return response()->json([
+            'success' => true,
+            'message' => $deletedCount > 0 ? 'Icon resize entry deleted successfully.' : 'No matching record found.',
+            'deleted_count' => $deletedCount
+        ]);
+    } catch (\Exception $e) {
+        DB::rollBack();
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Error deleting entry: ' . $e->getMessage()
+        ], 500);
+    }
+}
 // =============================End========================================
 }

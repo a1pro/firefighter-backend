@@ -1123,7 +1123,7 @@ public function deleteFloorBasementImage(Request $request)
     $request->validate([
         'building_id'  => 'required|integer|exists:buildings,id',
         'floor_id'     => 'nullable|integer|exists:floors,id',
-        'basement_id'  => 'nullable|integer|exists:basements,id',
+        'basement_id'  => 'nullable|integer|exists:basement,id',
         'image_path'   => 'nullable|string',
         'delete_all'   => 'nullable|boolean',
     ]);
