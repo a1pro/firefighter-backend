@@ -110,7 +110,7 @@ Route::post('/delete/drag/icon',[DragIconController::class,'deleteDragIcon']);
  
     // POST route with DragIconController
    
-    Route::get('/get/drag/icon/react', [DragIconController::class, 'getDragReactIcons']);
+    Route::middleware('cors')->get('/get/drag/icon/react', [DragIconController::class, 'getDragReactIcons']);
 
  
     

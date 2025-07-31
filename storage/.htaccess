@@ -1,0 +1,8 @@
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "https://firefighterweb.a1professionals.com"
+  Header set Access-Control-Allow-Methods "GET, OPTIONS"
+  Header set Access-Control-Allow-Headers "Origin, Content-Type, Accept"
+</IfModule>
+
+# Optional: Uncomment to test if .htaccess is working
+# Deny from all

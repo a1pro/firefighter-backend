@@ -11,39 +11,42 @@ class CorsMiddleware
     /**
      * Handle an incoming request.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): Response
     {
-        // Get the origin from the request headers
+        $allowedOrigins = [
+            'http://localhost:3000',
+            'http://localhost:5173',
+            'https://firefighterweb.a1professionals.com',
+            'https://firefighterweb.a1professionals.net',
+        ];
+
         $origin = $request->headers->get('Origin');
 
-        // Define the allowed origins (adjust this based on your needs)
-        $allowedOrigins = ['http://localhost:3000', 'https://firefighterweb.a1professionals.com','https://firefighterweb.a1professionals.net'];
+        $headers = [
+            'Access-Control-Allow-Origin'      => in_array($origin, $allowedOrigins) ? $origin : '',
+            'Access-Control-Allow-Methods'     => 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+            'Access-Control-Allow-Headers'     => 'Origin, Content-Type, Accept, Authorization, X-Requested-With',
+            'Access-Control-Allow-Credentials' => 'true',
+        ];
 
-        // Check if the origin is in the allowed list
-        if (in_array($origin, $allowedOrigins)) {
-            // Add the CORS headers to the response
-            $response = $next($request)
-                ->header('Access-Control-Allow-Origin', $origin)  // Allow only specific origin
-                ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH')  // Allow these HTTP methods
-                ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')  // Allow specific headers
-                ->header('Access-Control-Allow-Credentials', 'true');  // Allow credentials (cookies, etc.)
-        } else {
-            // If the origin is not allowed, pass the request without setting CORS headers
-            $response = $next($request);
+        // Handle preflight (OPTIONS) request
+        if ($request->getMethod() === 'OPTIONS') {
+            return response()->json('CORS preflight', 204, $headers);
         }
 
-        // Handle OPTIONS request (CORS preflight)
-        if ($request->getMethod() == "OPTIONS") {
-            return response('', 204)
-                ->header('Access-Control-Allow-Origin', $origin)
-                ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH')
-                ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With')
-                ->header('Access-Control-Allow-Credentials', 'true');
+        // Proceed with the request and attach CORS headers
+        $response = $next($request);
+
+        foreach ($headers as $key => $value) {
+            if ($value !== '') {
+                $response->headers->set($key, $value);
+            }
         }
 
         return $response;
     }
-
 }

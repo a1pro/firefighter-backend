@@ -187,15 +187,6 @@ public function getDragReactIcons(Request $request) {
     $floorId = $request->query('floor_id');
     $basementId = $request->query('basement_id');
 
-    // Ensure building_id is provided
-    if (!$buildingId) {
-        return response()->json([
-            'success' => false,
-            'status_code' => 404,
-            'message' => 'Building Id is required'
-        ]);
-    }
-
     // Initialize the query builder for DragIcon
     $query = DragIcon::where('building_id', $buildingId)
         ->with('icon'); // Always load the associated icon
@@ -252,13 +243,25 @@ public function getDragReactIcons(Request $request) {
     $responseData = $dragIcons->map(function ($dragIcon) {
         $icon = $dragIcon->icon;
         $category = $icon ? $icon->category : null;
-        $imagePath = $icon ? str_replace('public/', '', 'storage/' . $icon->path) : null;
+        
+        // Generate proper URL for the image
+        $imagePath = null;
+        if ($icon && $icon->path) {
+            try {
+                // Use Laravel's storage URL generation
+                $imagePath = str_starts_with($icon->path, 'http') 
+                    ? $icon->path 
+                    : (\Storage::url($icon->path));
+            } catch (\Exception $e) {
+                \Log::error("Error generating URL for icon path: {$icon->path}", ['error' => $e->getMessage()]);
+            }
+        }
 
         return [
             'drag_icon_id'     => $dragIcon->id,
             'icon_id'          => $icon ? $icon->id : null,
             'icon_name'        => $icon ? $icon->name : 'Unknown',
-            'icon_image_url'   => $imagePath ? url($imagePath) : null,
+            'icon_image_url'   => $imagePath,
             'category_name'    => $category ? $category->category_name : 'No Category',
             'latitude'         => $dragIcon->latitude,
             'longitude'        => $dragIcon->longitude,
