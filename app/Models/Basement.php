@@ -10,7 +10,7 @@ class Basement extends Model
     use HasFactory;
     
     protected $table = 'basement';
-    protected $fillable = ['building_id', 'floor_name', 'floor_image','messge', 'status'];
+    protected $fillable = ['building_id', 'basement_name', 'basement_number','basement_image','message', 'status'];
 
     public function building()
     {

@@ -1110,78 +1110,140 @@ if ($request->has('lon')) {
 
 public function deleteFloorBasementImage(Request $request)
 {
+    // Authentication check
     $user = Auth::user();
-
     if (!$user) {
         return response()->json([
             'success' => false,
             'status_code' => 401,
-            'message' => 'User not authenticated',
+            'message' => 'Unauthenticated access',
         ], 401);
     }
 
+    // Request validation
     $request->validate([
-        'building_id'  => 'required|integer|exists:buildings,id',
-        'floor_id'     => 'nullable|integer|exists:floors,id',
-        'basement_id'  => 'nullable|integer|exists:basement,id',
-        'image_path'   => 'nullable|string',
-        'delete_all'   => 'nullable|boolean',
+        'building_id' => 'required|integer|exists:buildings,id',
+        'floor_id' => 'nullable|integer|exists:floors,id',
+        'basement_id' => 'nullable|integer|exists:basements,id',
+        'image_path' => 'required_without:delete_all|string',
+        'delete_all' => 'nullable|boolean',
     ]);
 
+    // Check if either floor_id or basement_id is provided
     if (!$request->floor_id && !$request->basement_id) {
         return response()->json([
             'success' => false,
             'status_code' => 422,
-            'message' => 'Either floor_id or basement_id must be provided.',
-        ]);
+            'message' => 'Either floor_id or basement_id must be provided',
+        ], 422);
     }
 
+    // Determine if we're working with floor or basement
     $isFloor = !empty($request->floor_id);
-    $model = $isFloor
-        ? Floor::where('id', $request->floor_id)->where('building_id', $request->building_id)->first()
-        : Basement::where('id', $request->basement_id)->where('building_id', $request->building_id)->first();
+    $modelType = $isFloor ? 'Floor' : 'Basement';
+    $id = $isFloor ? $request->floor_id : $request->basement_id;
+
+    // Find the appropriate model
+    $model = $isFloor 
+        ? Floor::where('id', $request->floor_id)
+               ->where('building_id', $request->building_id)
+               ->first()
+        : Basement::where('id', $request->basement_id)
+                 ->where('building_id', $request->building_id)
+                 ->first();
 
     if (!$model) {
         return response()->json([
             'success' => false,
             'status_code' => 404,
-            'message' => 'Record not found.',
-        ]);
+            'message' => "$modelType not found for the given building",
+        ], 404);
     }
 
+    // Set field names based on model type
     $imageField = $isFloor ? 'floor_image' : 'basement_image';
-    $images = is_string($model->$imageField)
-        ? json_decode($model->$imageField, true)
-        : $model->$imageField;
+    $imageType = $isFloor ? 'floor' : 'basement';
+    $images = json_decode($model->$imageField, true) ?? [];
 
-    if (!is_array($images)) {
-        $images = [];
+    if (empty($images)) {
+        return response()->json([
+            'success' => false,
+            'status_code' => 404,
+            'message' => "No $imageType images found to delete",
+        ], 404);
     }
 
-    $imageToDelete = $request->image_path;
+    // Extract relative path from either URL or direct path
+    $extractRelativePath = function($path) {
+        if (str_contains($path, '/storage/')) {
+            return last(explode('/storage/', $path));
+        }
+        return ltrim(str_replace('storage/', '', $path), '/');
+    };
+
     $deleteAll = $request->boolean('delete_all', false);
+    $imageToDelete = $request->image_path;
+    $relativePathToDelete = $extractRelativePath($imageToDelete);
 
     $updatedImages = [];
+    $deletedCount = 0;
+    $foundImage = false;
 
     foreach ($images as $img) {
-        $fullPath = 'public/' . ltrim($img, '/');
-        if ($deleteAll || ($imageToDelete && str_contains($img, $imageToDelete))) {
-            Storage::delete($fullPath); // Delete file from disk
-            continue; // Skip adding to updated images
+        $currentImgRelative = $extractRelativePath($img);
+
+        if ($deleteAll || $currentImgRelative === $relativePathToDelete) {
+            $foundImage = true;
+            
+            // Try multiple possible storage locations
+            $storagePaths = [
+                'public/' . $currentImgRelative,
+                'storage/' . $currentImgRelative,
+                $currentImgRelative,
+            ];
+
+            foreach ($storagePaths as $storagePath) {
+                if (Storage::exists($storagePath)) {
+                    Storage::delete($storagePath);
+                    $deletedCount++;
+                    break;
+                }
+            }
+
+            if (!$deleteAll) {
+                continue; // Skip adding to updated array for specific deletion
+            }
         }
-        $updatedImages[] = $img; // Keep image
+        
+        $updatedImages[] = $img;
     }
 
-    $model->$imageField = json_encode($updatedImages);
+    // Handle case where specific image wasn't found
+    if (!$deleteAll && !$foundImage) {
+        return response()->json([
+            'success' => false,
+            'status_code' => 404,
+            'message' => "The specified $imageType image was not found",
+            'debug' => [
+                'searched_path' => $relativePathToDelete,
+                'available_images' => $images,
+                'storage_root' => Storage::path(''),
+            ],
+        ], 404);
+    }
+
+    // Update the model
+    $model->$imageField = !empty($updatedImages) ? json_encode($updatedImages) : null;
     $model->save();
 
     return response()->json([
         'success' => true,
         'status_code' => 200,
         'message' => $deleteAll
-            ? 'All images deleted successfully.'
-            : 'Selected image deleted successfully.',
+            ? "All $deletedCount $imageType images deleted successfully"
+            : "$imageType image deleted successfully",
         'remaining_images' => $updatedImages,
+        'deleted_count' => $deletedCount,
     ]);
 }
 

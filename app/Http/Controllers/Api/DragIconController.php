@@ -163,121 +163,115 @@ public function getDragIcons(Request $request)
 
     
 // ========================================================================================
-public function getDragReactIcons(Request $request) {
-    $userId = Auth::id();
+public function getDragReactIcons(Request $request)
+{
     $user = Auth::user();
-    $role = $user->role;
 
-    // Check if the user is authenticated
-    if (!$userId) {
+    if (!$user) {
         return response()->json([
-            'success' => false,
+            'success'     => false,
             'status_code' => 401,
-            'message' => 'User not authenticated',
+            'message'     => 'User not authenticated',
         ], 401);
     }
 
-    // Validate the query parameters to ensure building_id is required
     $request->validate([
-        'building_id' => 'required|integer|exists:buildings,id', // Building ID is mandatory
+        'building_id' => 'required|integer|exists:buildings,id',
     ]);
 
-    // Retrieve inputs from the query parameters
     $buildingId = $request->query('building_id');
-    $floorId = $request->query('floor_id');
+    $floorId    = $request->query('floor_id');
     $basementId = $request->query('basement_id');
 
-    // Initialize the query builder for DragIcon
     $query = DragIcon::where('building_id', $buildingId)
-        ->with('icon'); // Always load the associated icon
+        ->with(['icon.category']);
 
-    // For Editors, filter by user_id
-    if ($role == 'Editor') {
-        $query->where('user_id', $userId);
-    }
+    // Remove this block so Editors see all data:
+    // if ($user->role == 'Editor') {
+    //     $query->where('user_id', $user->id);
+    // }
 
-    // Validate floor_id if provided
     if ($floorId !== null) {
         $floorExists = DragIcon::where('floor_id', $floorId)
             ->where('building_id', $buildingId)
             ->exists();
+
         if (!$floorExists) {
             return response()->json([
-                'success' => false,
+                'success'     => false,
                 'status_code' => 404,
-                'message' => 'Floor not found or does not belong to the provided building',
+                'message'     => 'Floor not found or does not belong to the provided building',
             ], 404);
         }
+
         $query->where('floor_id', $floorId);
     }
 
-    // Validate basement_id if provided
     if ($basementId !== null) {
         $basementExists = DragIcon::where('basement_id', $basementId)
             ->where('building_id', $buildingId)
             ->exists();
+
         if (!$basementExists) {
             return response()->json([
-                'success' => false,
+                'success'     => false,
                 'status_code' => 404,
-                'message' => 'Basement not found or does not belong to the provided building',
+                'message'     => 'Basement not found or does not belong to the provided building',
             ], 404);
         }
+
         $query->where('basement_id', $basementId);
     }
 
-    // Fetch DragIcons based on the constructed query
     $dragIcons = $query->get();
 
-    // Handle empty results
     if ($dragIcons->isEmpty()) {
         return response()->json([
-            'success' => true,
+            'success'     => true,
             'status_code' => 200,
-            'message' => 'No Drag Icons found for the provided filters',
-            'data' => [],
+            'message'     => 'No Drag Icons found for the provided filters',
+            'data'        => [],
         ], 200);
     }
 
-    // Format response data
     $responseData = $dragIcons->map(function ($dragIcon) {
-        $icon = $dragIcon->icon;
-        $category = $icon ? $icon->category : null;
-        
-        // Generate proper URL for the image
+        $icon     = $dragIcon->icon;
+        $category = $icon?->category;
+
         $imagePath = null;
-        if ($icon && $icon->path) {
+        if ($icon?->path) {
             try {
-                // Use Laravel's storage URL generation
-                $imagePath = str_starts_with($icon->path, 'http') 
-                    ? $icon->path 
-                    : (\Storage::url($icon->path));
+                $imagePath = str_starts_with($icon->path, 'http')
+                    ? $icon->path
+                    : \Storage::url($icon->path);
             } catch (\Exception $e) {
-                \Log::error("Error generating URL for icon path: {$icon->path}", ['error' => $e->getMessage()]);
+                \Log::error("Error generating URL for icon path: {$icon->path}", [
+                    'error' => $e->getMessage(),
+                ]);
             }
         }
 
         return [
-            'drag_icon_id'     => $dragIcon->id,
-            'icon_id'          => $icon ? $icon->id : null,
-            'icon_name'        => $icon ? $icon->name : 'Unknown',
-            'icon_image_url'   => $imagePath,
-            'category_name'    => $category ? $category->category_name : 'No Category',
-            'latitude'         => $dragIcon->latitude,
-            'longitude'        => $dragIcon->longitude,
-            'message'          => $dragIcon->message,
-            'building_id'      => $dragIcon->building_id,
-            'floor_id'         => $dragIcon->floor_id,
-            'basement_id'      => $dragIcon->basement_id,
-            'rotation'         => $dragIcon->rotation,
+            'drag_icon_id'   => $dragIcon->id,
+            'icon_id'        => $icon?->id,
+            'icon_name'      => $icon->name ?? 'Unknown',
+            'icon_image_url' => $imagePath,
+            'category_name'  => $category->category_name ?? 'No Category',
+            'latitude'       => $dragIcon->latitude,
+            'longitude'      => $dragIcon->longitude,
+            'message'        => $dragIcon->message,
+            'building_id'    => $dragIcon->building_id,
+            'floor_id'       => $dragIcon->floor_id,
+            'basement_id'    => $dragIcon->basement_id,
+            'rotation'       => $dragIcon->rotation,
         ];
-    })->values(); // Reset array keys
+    })->values();
 
     return response()->json([
-        'success' => true,
+        'success'     => true,
         'status_code' => 200,
-        'message' => 'Drag Icons List',
-        'data' => $responseData,
+        'message'     => 'Drag Icons List',
+        'data'        => $responseData,
     ], 200);
 }
 
