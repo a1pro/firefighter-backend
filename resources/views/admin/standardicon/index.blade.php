@@ -174,22 +174,19 @@
                         </tbody>
                     </table>
                 </div>
-               <div id="paginationContainer" class="d-flex flex-column flex-md-row justify-content-between align-items-center my-3">
-    <!-- Pagination Info -->
-    <div id="paginationInfo" class="text-muted mb-2 mb-md-0">
-        @if($icons->count() > 0)
-            Showing <strong>{{ $icons->firstItem() }}</strong> to <strong>{{ $icons->lastItem() }}</strong> of <strong>{{ $icons->total() }}</strong> entries
-        @else
-            <span class="text-danger">No entries found</span>
-        @endif
-    </div>
-
-    <!-- Pagination Links -->
-    <div>
-        {{ $icons->appends(['per_page' => request('per_page', 10)])->links('pagination::bootstrap-5') }}
-    </div>
-</div>
-
+                
+                <div id="paginationContainer" class="d-flex justify-content-between align-items-center">
+                    <div id="paginationInfo" class="text-muted">
+                        @if($icons->count() > 0)
+                            Showing {{ $icons->firstItem() }} to {{ $icons->lastItem() }} of {{ $icons->total() }} entries
+                        @else
+                            No entries found
+                        @endif
+                    </div>
+                    <div>
+                        {{ $icons->appends(['per_page' => request('per_page', 10)])->links() }}
+                    </div>
+                </div>
                 
                 <div id="noResults" class="alert alert-warning text-center" style="display: none;">
                     No icons found matching your search criteria.
