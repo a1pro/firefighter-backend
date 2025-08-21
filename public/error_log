@@ -919,3 +919,4 @@ Stack trace:
 #3 {main}
   thrown in /home/firefighter/firefighter.a1professionals.net_public_html/vendor/composer/autoload_real.php on line 41
 [14-Jul-2025 05:16:19 UTC] PHP Fatal error:  Allowed memory size of 268435456 bytes exhausted (tried to allocate 132124672 bytes) in /home/firefighter/firefighter.a1professionals.net_public_html/app/Http/Controllers/Api/DragIconController.php on line 583
+[21-Aug-2025 11:12:59 UTC] PHP Fatal error:  Cannot declare class App\Http\Controllers\Admin\StandardIconController, because the name is already in use in /home/firefighter/firefighter.a1professionals.net_public_html/storage/framework/views/d862ac743a570e5c946098d7f86f5e71.php on line 14

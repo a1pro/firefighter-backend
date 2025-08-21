@@ -111,7 +111,9 @@
         </div>
     </div>
 </div>
+
 @endsection
+
 
 @section('script')
 <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.25/dist/sweetalert2.min.css" rel="stylesheet">
@@ -286,3 +288,4 @@
     }
 </script>
 @endsection
+
